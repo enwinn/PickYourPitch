@@ -46,6 +46,9 @@ class PlaySoundsViewController: UIViewController {
             audioFile = nil
         }
         
+        // Check for slider position from last use
+        sliderView.value = UserDefaults.standard.float(forKey: "SliderValueKey")
+        
         setUserInterfaceToPlayMode(false)
     }
     
@@ -69,6 +72,9 @@ class PlaySoundsViewController: UIViewController {
         
         // Set the UI
         setUserInterfaceToPlayMode(true)
+        
+        // Save current sslider position
+        UserDefaults.standard.set(sliderView.value, forKey: "SliderValueKey")
         
     }
     
